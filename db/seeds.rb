@@ -1,0 +1,1 @@
+Family.create(username: "deleyla", password: "password", first_name: "deleyla", last_name: "glass", email: "deleyla@gmail.com", phone_number: "(512) 800-9849", city: "austin", state: "tx", child_id: 1, family_image: "glass_family.jpg", private: false)
