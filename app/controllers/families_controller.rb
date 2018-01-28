@@ -1,8 +1,15 @@
 class FamiliesController < ApplicationController
+
   # get all families from my database
   def index
     families = Family.all
+    # if current_family
+    #   families = current_user.families
+    #   render json: families.as_json
+    # else
+    #   render json: []
     render json: families.as_json
+    # end
   end
 
   # grab a single family from my database based on the id
@@ -13,18 +20,19 @@ class FamiliesController < ApplicationController
 
   # make a new instance of family in the database
   def create
+    p params
     family = Family.new(
-      username: params[:username],
-      password: params[:password],
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
+      password: params[:password],
       phone_number: params[:phone_number],
+      street_address: params[:street_address],
+      secondary_address: params[:secondary_address],
       city: params[:city],
       state: params[:state],
-      child_id: params[:child_id],
-      family_image: params[:family_image],
-      private: [:private])
+      zip_code: params[:zip_code],
+      photo: params[:photo])
     # save the information from user input to create a new family.
     family.save!
     if family.save!
@@ -44,17 +52,17 @@ class FamiliesController < ApplicationController
 
     # update it
     if family.update!(
-      username: params[:username],
-      password: params[:password],
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
+      password: params[:password],
       phone_number: params[:phone_number],
+      street_address: params[:street_address],
+      secondary_address: params[:secondary_address],
       city: params[:city],
       state: params[:state],
-      child_id: params[:child_id],
-      family_image: params[:family_image],
-      private: [:private])
+      zip_code: params[:zip_code],
+      photo: params[:photo])
       render json: family.as_json
     else
       render json: {errors: family.errors.full_messages}

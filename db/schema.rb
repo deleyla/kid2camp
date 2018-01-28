@@ -10,25 +10,85 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118014959) do
+ActiveRecord::Schema.define(version: 20180125023818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "camps", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone_number"
+    t.string "city"
+    t.string "state"
+    t.string "category"
+    t.string "sub_category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "street_address"
+    t.string "secondary_address"
+    t.string "zip_code"
+    t.string "photo"
+    t.string "password_digest"
+  end
+
+  create_table "children", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "family_id"
+    t.integer "application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "birthday"
+    t.string "sex"
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.integer "amount"
+    t.string "frequency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "donor_id"
+  end
+
+  create_table "donors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "phone_number"
+    t.string "street_address"
+    t.string "secondary_address"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "families", force: :cascade do |t|
-    t.string "username"
     t.string "first_name"
     t.string "last_name"
     t.string "email"
     t.string "phone_number"
     t.string "city"
     t.string "state"
-    t.integer "child_id"
-    t.string "family_image"
-    t.boolean "private"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "street_address"
+    t.string "secondary_address"
+    t.string "zip_code"
+    t.string "photo"
+  end
+
+  create_table "scholarships", force: :cascade do |t|
+    t.integer "amount"
+    t.string "frequency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "camp_id"
   end
 
 end
