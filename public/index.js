@@ -306,10 +306,19 @@ var CampIndexPage = {
   template: "#camp-index-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!"
+      message: "Welcome to Vue.js",
+      camps: [],
+      errors: []
     };
   },
-  created: function() {},
+  created: function() {
+    console.log("in camp index");
+    //make http request to camps route in backend
+    axios.get('/camps').then(function(response) {
+      console.log(response.data);
+      this.camps = response.data;
+    }.bind(this));
+  },
   methods: {},
   computed: {}
 };

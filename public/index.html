@@ -477,14 +477,19 @@
 <template id="camp-index-page">
   <div class="vue-component">
 
-  <div class="jumbotron">
-    <div class="container text-center">
-      <h1>Camps</h1>      
-      <p>Afterschool, Extracurricular and Summer Camp Scholarships</p>
+    <div class="jumbotron">
+      <div class="container text-center">
+        <h1>Camps</h1>      
+        <p>Afterschool, Extracurricular and Summer Camp Scholarships</p>
+      </div>
     </div>
-  </div>
 
-  <h1>{{ message }}</h1>
+    <div v-for="camp in camps">
+      <p>{{ camps }}</p>
+    </div>
+
+  </div>
+</template>
 
 <!--   <div class="container">    
   <div class="row">
