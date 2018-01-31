@@ -38,5 +38,16 @@ Rails.application.routes.draw do
   get "/donations/:id" => "donations#show"
   patch "/donations/:id" => "donations#update"
   delete "/donations/:id" => "donations#destroy"
-
+#Application Routes
+  get "/applications" => "applications#index"
+  post "/applications" => "applications#create"
+  get "/applications/:id" => "applications#show"
+  patch "/applications/:id" => "applications#update"
+  delete "/applications/:id" => "applications#destroy"
+#CampApplication Routes
+  get "/camp_applications" => "camp_applications#index"
+  post "/camp_applications" => "camp_applications#create"
+  get "/camp_applications/:id" => "camp_applications#show"
+  patch "/camp_applications/:id" => "camp_applications#update"
+  delete "/camp_applications/:id" => "camp_applications#destroy"
 end

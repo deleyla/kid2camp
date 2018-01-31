@@ -1,6 +1,10 @@
 class Camp < ApplicationRecord
   has_secure_password
   has_many :scholarships
+  has_many :camp_applications
+  has_many :applications, through: :camp_applications
+  has_many :donations
+  has_many :donors, through: :donations
 
   def as_json
     {

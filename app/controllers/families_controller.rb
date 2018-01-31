@@ -3,6 +3,8 @@ class FamiliesController < ApplicationController
   # get all families from my database
   def index
     families = Family.all
+    p "Hello i'm about to print where the user is"
+    p current_family
     # if current_family
     #   families = current_user.families
     #   render json: families.as_json

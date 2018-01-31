@@ -1,6 +1,8 @@
 class Donor < ApplicationRecord
   has_secure_password
   has_many :donations
+  has_many :families, through: :donations
+  has_many :camps, through: :donations
   def as_json
     {
       id: id,

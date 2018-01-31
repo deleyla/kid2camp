@@ -1,6 +1,7 @@
 class Family < ApplicationRecord
   has_secure_password
   has_many :children
+  has_one :application
 
 # #validations
   # validates :username, presence: true, uniqueness: true

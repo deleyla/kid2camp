@@ -1,4 +1,5 @@
 class CampsController < ApplicationController
+
  # get all camps from my database
   def index
     camps = Camp.all
@@ -20,11 +21,13 @@ class CampsController < ApplicationController
   # make a new instance of camp in the database
   def create
     p params
-    camp = camp.new(
+    camp = Camp.new(
       name: params[:name],
       email: params[:email],
       password: params[:password],
       phone_number: params[:phone_number],
+      street_address: params[:street_address],
+      secondary_address: params[:secondary_address],
       city: params[:city],
       state: params[:state],
       zip_code: params[:zip_code],
@@ -54,6 +57,8 @@ class CampsController < ApplicationController
       email: params[:email],
       password: params[:password],
       phone_number: params[:phone_number],
+      street_address: params[:street_address],
+      secondary_address: params[:secondary_address],
       city: params[:city],
       state: params[:state],
       zip_code: params[:zip_code],
