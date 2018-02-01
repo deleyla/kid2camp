@@ -299,7 +299,7 @@ var DonorLoginPage = {
 };
 
 // ========== //
-// CAMP PAGES //
+// INDEX PAGES //
 // ========== //
 
 var CampIndexPage = {
@@ -323,6 +323,48 @@ var CampIndexPage = {
   computed: {}
 };
 
+var FamilyIndexPage = {
+  template: "#family-index-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js",
+      families: [],
+      errors: []
+    };
+  },
+  created: function() {
+    console.log("in family index");
+    //make http request to families route in backend
+    axios.get('/families').then(function(response) {
+      console.log(response.data);
+      this.families = response.data;
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
+
+var DonorIndexPage = {
+  template: "#donor-index-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js",
+      donors: [],
+      errors: []
+    };
+  },
+  created: function() {
+    console.log("in donor index");
+    //make http request to donors route in backend
+    axios.get('/donors').then(function(response) {
+      console.log(response.data);
+      this.donors = response.data;
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
+
 var router = new VueRouter({
   routes: [
     { path: "/", component: HomePage },
@@ -339,6 +381,8 @@ var router = new VueRouter({
     { path: "/donor-login", component: DonorLoginPage },
     // routes to camp pages
     { path: "/camps", component: CampIndexPage },
+    { path: "/families", component: FamilyIndexPage },
+    { path: "/donors", component: DonorIndexPage },
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

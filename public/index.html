@@ -471,79 +471,110 @@
 </template>
 
 <!-- =================== -->
-<!-- CAMPS PAGE LISTINGS -->
+<!-- INDEX PAGE LISTINGS -->
 <!-- =================== -->
 
 <template id="camp-index-page">
   <div class="vue-component">
-
     <div class="jumbotron">
       <div class="container text-center">
         <h1>Camps</h1>      
         <p>Afterschool, Extracurricular and Summer Camp Scholarships</p>
       </div>
     </div>
-
     <div v-for="camp in camps">
-      <p>{{ camps }}</p>
-    </div>
-
+      <div class="container">    
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h2>{{ camp.name }}</h2>
+              <h4>Scholarships Available: {{ camp.scholarships.length }}</h4>
+            </div>
+            <div class="panel-body">
+              <img class="card-img-top img-fluid rounded-square" src="img/02.jpeg" alt="Card image cap" style="height:200px; width:200px">
+            </div>
+            <div class="panel-footer">
+              {{ camp.street_address }}<br>
+              {{ camp.secondary_address }}<br>
+              {{ camp.city }}
+              {{ camp.state }}
+              {{ camp.zip_code }}<br>
+              {{ camp.email }}<br>
+              {{ camp.phone_number }}
+            </div><br><br><br>
+          </div>
+        </div>
+        </div>
   </div>
 </template>
 
-<!--   <div class="container">    
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+<template id="family-index-page">
+  <div class="vue-component">
+    <div class="jumbotron">
+      <div class="container text-center">
+        <h1>Families</h1>      
+        <p>Families in Need</p>
       </div>
     </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-danger">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-success">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-  </div>
-</div><br>
-
-<div class="container">    
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-  </div>
-</div><br><br>
- -->
-
+    <div v-for="family in families">
+      <div class="container">    
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h2>{{ family.last_name }} Household</h2>
+              <h4>Children in Household: {{ family.children.length }}</h4>
+            </div>
+            <div class="panel-body">
+              <img class="card-img-top img-fluid rounded-square" src="img/01.jpeg" alt="Card image cap" style="height:200px; width:200px">
+            </div>
+            <div class="panel-footer">
+              {{ family.street_address }}<br>
+              {{ family.secondary_address }}<br>
+              {{ family.city }}
+              {{ family.state }}
+              {{ family.zip_code }}<br>
+              {{ family.email }}<br>
+              {{ family.phone_number }}
+            </div><br><br><br>
+          </div>
+        </div>
+        </div>
   </div>
 </template>
 
+<template id="donor-index-page">
+  <div class="vue-component">
+    <div class="jumbotron">
+      <div class="container text-center">
+        <h1>Donors</h1>      
+        <p>Generous Individuals Who Have Given the Gift of Camp</p>
+      </div>
+    </div>
+    <div v-for="donor in donors">
+      <div class="container">    
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h2>{{donor.first_name}} {{ donor.last_name }}</h2>
+              <h4>Number of Donations Given: {{ donor.donations.length }}</h4>
+            </div>
+            <div class="panel-body">
+              <img class="card-img-top img-fluid rounded-square" src="img/03.jpeg" alt="Card image cap" style="height:200px; width:200px">
+            </div>
+            <div class="panel-footer">
+              {{ donor.street_address }}<br>
+              {{ donor.secondary_address }}<br>
+              {{ donor.city }}
+              {{ donor.state }}
+              {{ donor.zip_code }}<br>
+              {{ donor.email }}<br>
+              {{ donor.phone_number }}
+            </div><br><br><br>
+          </div>
+        </div>
+        </div>
+  </div>
+</template>
