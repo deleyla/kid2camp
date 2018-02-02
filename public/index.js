@@ -415,6 +415,44 @@ var ApplicationPage = {
   }
 };
 
+// CHILD PAGE //
+
+// APPLICATION PAGE //
+
+// // Application-Page-Vue.js
+var ChildrenPage = {
+  template: "#children-page",
+  data: function() {
+    return {
+      firstName: "",
+      lastName: "",
+      sex: "",
+      birthday: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        first_name: this.firstName,
+        last_name: this.lastName,
+        sex: this.sex,
+        birthday: this.birthday
+      };
+      axios
+        .post("/children", params)
+        .then(function(response) {
+          router.push("/application");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+  }
+};
+
 
 var router = new VueRouter({
   routes: [
@@ -436,6 +474,8 @@ var router = new VueRouter({
     { path: "/donors", component: DonorIndexPage },
     // route to application page
     { path: "/application", component: ApplicationPage },
+    // route to child page
+    { path: "/children", component: ChildrenPage },
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

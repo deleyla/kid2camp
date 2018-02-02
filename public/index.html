@@ -640,3 +640,38 @@
     </div>
   </div>
 </template>
+
+<!-- ========== -->
+<!-- CHILD PAGE -->
+<!-- ========== -->
+
+<!-- Children Form -->
+<template id="children-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Children</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>What is your child's first name?</label>
+        <input type="first_name" class="form-control" v-model="firstName">
+      </div>
+      <div class="form-group">
+        <label>What is your child's last name?</label>
+        <input type="last_name" class="form-control" v-model="lastName">
+      </div>
+      <div class="form-group">
+        <label>What is your child's sex? Male or Female</label>
+        <input type="sex" class="form-control" v-model="sex">
+      </div>
+      <div class="form-group">
+        <label>What is your child's birthday? Please use the following format: YYYY-MM-DD</label>
+        <input type="birthday" class="form-control" v-model="birthday">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+  </div>
+</template>
+

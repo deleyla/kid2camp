@@ -26,7 +26,7 @@ class ChildrenController < ApplicationController
       last_name: params[:last_name],
       birthday: params[:birthday],
       sex: params[:sex],
-      city: params[:city])
+      family: current_family)
     # save the information from user input to create a new child.
     child.save!
     if child.save!
@@ -49,8 +49,7 @@ class ChildrenController < ApplicationController
       first_name: params[:first_name],
       last_name: params[:last_name],
       birthday: params[:birthday],
-      sex: params[:sex],
-      city: params[:city])
+      sex: params[:sex])
       render json: child.as_json
     else
       render json: {errors: child.errors.full_messages}

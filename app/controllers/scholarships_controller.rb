@@ -23,7 +23,8 @@ class ScholarshipsController < ApplicationController
     p params
     scholarship = Scholarship.new(
       amount: params[:amount],
-      frequency: params[:frequency])
+      frequency: params[:frequency],
+      camp: current_camp)
     # save the information from user input to create a new scholarship.
     scholarship.save!
     if scholarship.save!
