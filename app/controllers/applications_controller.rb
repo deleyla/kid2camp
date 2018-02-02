@@ -20,6 +20,7 @@ class ApplicationsController < ApplicationController
   # make a new instance of application in the database
   def create
     p params
+    p current_family
     application = Application.new(
       child_count: params[:child_count],
       adult_count: params[:adult_count],
@@ -33,7 +34,8 @@ class ApplicationsController < ApplicationController
       monthly_medical_cost: params[:monthly_medical_cost],
       monthly_transportation_cost: params[:monthly_transportation_cost],
       monthly_food_cost: params[:monthly_food_cost],
-      scholarship_need_explanation: params[:scholarship_need_explanation]
+      scholarship_need_explanation: params[:scholarship_need_explanation],
+      family: current_family
       )
     # save the information from user input to create a new application.
     application.save!

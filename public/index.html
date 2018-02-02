@@ -578,3 +578,65 @@
         </div>
   </div>
 </template>
+
+<!-- ================ -->
+<!-- APPLICATION FORM -->
+<!-- ================ -->
+
+<!-- Application Form -->
+<template id="application-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Application</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>How many children live in your household?</label>
+        <input type="child_count" class="form-control" v-model="childCount">
+      </div>
+      <div class="form-group">
+        <label>How many adults live in your household?</label>
+        <input type="adult_count" class="form-control" v-model="adultCount">
+      </div>
+      <div class="form-group">
+        <label>Are you a single or dual income household?</label>
+        <input type="household_income_type" class="form-control" v-model="householdIncomeType">
+      </div>
+      <div class="form-group">
+        <label>What is your gross monthly income?</label>
+        <input type="gross_monthly_income" class="form-control" v-model="grossMonthlyIncome">
+      </div>
+      <div class="form-group">
+        <label>What is your net monthly income (amount after deductions?)</label>
+        <input type="net_monthly_income" class="form-control" v-model="netMonthlyIncome">
+      </div>
+      <div class="form-group">
+        <label>What is your monthly housing cost?</label>
+        <input type="monthly_housing_cost" class="form-control" v-model="monthlyHousingCost">
+      </div>
+      <div class="form-group">
+        <label>What is your monthly utility cost?</label>
+        <input type="monthly_utility_cost" class="form-control" v-model="monthlyUtilityCost">
+      </div>
+      <div class="form-group">
+        <label>What is your monthly medical cost?</label>
+        <input type="monthly_medical_cost" class="form-control" v-model="monthlyMedicalCost">
+      </div>
+      <div class="form-group">
+        <label>What is your monthly transportation cost?</label>
+        <input type="monthly_transportation_cost" class="form-control" v-model="monthlyTransportationCost">
+      </div>
+      <div class="form-group">
+        <label>How much on average do you spend per month on groceries?</label>
+        <input type="monthly_food_cost" class="form-control" v-model="monthlyFoodCost">
+      </div>
+      <div class="form-group">
+        <label>Please explain the circumstances that make scholarships important to your family:</label>
+        <input type="scholarship_need_explanation" class="form-control" v-model="scholarshipNeedExplanation">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+  </div>
+</template>

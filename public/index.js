@@ -365,6 +365,57 @@ var DonorIndexPage = {
   computed: {}
 };
 
+// APPLICATION PAGE //
+
+// // Application-Page-Vue.js
+var ApplicationPage = {
+  template: "#application-page",
+  data: function() {
+    return {
+      childCount: "",
+      adultCount: "",
+      householdIncomeType: "",
+      grossMonthlyIncome: "",
+      netMonthlyIncome: "",
+      monthlyHousingCost: "",
+      monthlyUtilityCost: "", 
+      monthlyMedicalCost: "", 
+      monthlyTransportationCost: "",
+      monthlyFoodCost: "",
+      scholarshipNeedExplanation: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        child_count: this.childCount,
+        adult_count: this.adultCount,
+        household_income_type: this.householdIncomeType,
+        gross_monthly_income: this.grossMonthlyIncome,
+        net_monthly_income: this.netMonthlyIncome,
+        monthly_housing_cost: this.monthlyHousingCost,
+        monthly_utility_cost: this.monthlyUtilityCost,
+        monthly_medical_cost: this.monthlyMedicalCost,
+        monthly_transportation_cost: this.monthlyTransportationCost,
+        monthly_food_cost: this.monthlyFoodCost,
+        scholarship_need_explanation: this.scholarshipNeedExplanation
+      };
+      axios
+        .post("/applications", params)
+        .then(function(response) {
+          router.push("/camps");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+  }
+};
+
+
 var router = new VueRouter({
   routes: [
     { path: "/", component: HomePage },
@@ -383,6 +434,8 @@ var router = new VueRouter({
     { path: "/camps", component: CampIndexPage },
     { path: "/families", component: FamilyIndexPage },
     { path: "/donors", component: DonorIndexPage },
+    // route to application page
+    { path: "/application", component: ApplicationPage },
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
