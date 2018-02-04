@@ -2,15 +2,14 @@ class CampApplicationsController < ApplicationController
     # get all camp_applications from my database
   def index
     camp_applications = CampApplication.all
-    camp_applications = current_family.application.camps
     render json: camp_applications.as_json
     # end
   end
 
   # grab a single camp_application from my database based on the id
   def show
-    camp_application = CampApplication.find_by(id: params[:id])
-    render json: camp_application.as_json
+    camp_applications = current_family.application.camps
+    render json: camp_applications.as_json
   end
 
   # make a new instance of camp_application in the database

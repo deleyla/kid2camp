@@ -847,15 +847,12 @@
                   <th>Scholarship Frequency</th>
                 </tr>
               </thead>
-              <tbody>
-              <div v-for="camp_application in camp_applications">
-                <tr>
-                  <td>{{ camp_applications}}</td>
-<!--                   <td>{{ camp_applications.camp.category }}</td>
-                  <td>{{ camp_applications.camp.sub_category }}</td>
-                  <td>{{ camp_applications.camp.scholarships.amount }}</td>
-                  <td>{{ camp_applications.camp.scholarships.frequency }}</td> -->
-                </tr>
+              <tbody v-for="data in camp_applications">
+                  <td> {{ data.name }} </td>
+                  <td>{{ data.category }}</td>
+                  <td>{{ data.sub_category }}</td>
+<!--              <td>{{ data.scholarship.amount }}</td>
+                  <td>{{ data.frequency }}</td> -->
               </tbody>
             </table>
           </div>
