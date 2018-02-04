@@ -42,7 +42,7 @@
       <!-- /.container -->
     </footer>
 
-      </div>
+    </div>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -502,7 +502,8 @@
               {{ camp.zip_code }}<br>
               {{ camp.email }}<br>
               {{ camp.phone_number }}
-            </div><br><br><br>
+            </div><br>
+            <button class="btn btn-primary" v-on:click="submit(camp)">Apply</button><br><br>
           </div>
         </div>
         </div>

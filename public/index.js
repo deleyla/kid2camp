@@ -302,6 +302,8 @@ var DonorLoginPage = {
 // INDEX PAGES //
 // ========== //
 
+// ADD A REDIRECT PAGE TO THE APPLICATION SUBMIT FUNCTION 
+
 var CampIndexPage = {
   template: "#camp-index-page",
   data: function() {
@@ -319,7 +321,23 @@ var CampIndexPage = {
       this.camps = response.data;
     }.bind(this));
   },
-  methods: {},
+  methods: {
+    submit: function(inputCamp) {
+      var params = {
+        camp_id: inputCamp.id
+      };
+      axios
+        .post("/camp_applications", params)
+        .then(function(response) {
+          router.push("/camps"); 
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+  },
   computed: {}
 };
 

@@ -20,9 +20,10 @@ class CampApplicationsController < ApplicationController
   # make a new instance of camp_application in the database
   def create
     p params
+    p current_family.application.id
     camp_application = CampApplication.new(
       camp_id: params[:camp_id],
-      application_id: params[:application_id],
+      application_id: current_family.application.id,
       application_received: params[:application_received]
       )
     # save the information from user input to create a new camp_application.
