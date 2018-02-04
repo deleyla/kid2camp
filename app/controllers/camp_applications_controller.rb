@@ -2,11 +2,7 @@ class CampApplicationsController < ApplicationController
     # get all camp_applications from my database
   def index
     camp_applications = CampApplication.all
-    # if current_campapplication
-    #   camp_applications = current_user.camp_applications
-    #   render json: camp_applications.as_json
-    # else
-    #   render json: []
+    camp_applications = current_family.application.camps
     render json: camp_applications.as_json
     # end
   end

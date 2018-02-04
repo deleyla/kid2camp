@@ -16,7 +16,7 @@ class FamiliesController < ApplicationController
 
   # grab a single family from my database based on the id
   def show
-    family = Family.find_by(id: params[:id])
+    family = Family.find_by(id: current_family.id)
     render json: family.as_json
   end
 

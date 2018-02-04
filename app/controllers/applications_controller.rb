@@ -13,7 +13,7 @@ class ApplicationsController < ApplicationController
 
   # grab a single application from my database based on the id
   def show
-    application = Application.find_by(id: params[:id])
+    application = current_family.application
     render json: application.as_json
   end
 

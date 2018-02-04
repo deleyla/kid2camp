@@ -219,7 +219,7 @@ var FamilyLoginPage = {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          router.push("/");
+          router.push("/family-dashboard");
         })
         .catch(
           function(error) {
@@ -329,7 +329,7 @@ var CampIndexPage = {
       axios
         .post("/camp_applications", params)
         .then(function(response) {
-          router.push("/camps"); 
+          router.push("/family-dashboard"); 
         })
         .catch(
           function(error) {
@@ -383,23 +383,6 @@ var DonorIndexPage = {
   computed: {}
 };
 
-// =============== //
-// DASHBOARD PAGES //
-// =============== //
-
-var FamilyDashboardPage = {
-  template: "#family-dashboard-page",
-  data: function() {
-    return {
-      message: "Welcome to Vue.js!"
-    };
-  },
-  created: function() {},
-  methods: {},
-  computed: {}
-};
-
-
 // ================ //
 // APPLICATION PAGE //
 // ================ //
@@ -441,7 +424,7 @@ var ApplicationPage = {
       axios
         .post("/applications", params)
         .then(function(response) {
-          router.push("/camps");
+          router.push("/family-dashboard");
         })
         .catch(
           function(error) {
@@ -450,6 +433,28 @@ var ApplicationPage = {
         );
     }
   }
+};
+
+// ==========================
+// SHOW APPLICATION COMPONENT
+// ==========================
+
+var MyApplication = {
+  template: "#my-application-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!",
+      familyApplication: []
+    };
+  },
+  created: function() {
+    axios.get('/applications/:id').then(function(response) {
+      this.familyApplication = response.data;
+      console.log(this.familyApplication);
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
 };
 
 // ================ //
@@ -523,6 +528,31 @@ var ScholarshipPage = {
   }
 };
 
+// =============== //
+// DASHBOARD PAGES //
+// =============== //
+
+var FamilyDashboardPage = {
+  template: "#family-dashboard-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!",
+      camp_applications: [],
+      errors: []
+    };
+  },
+  created: function() {
+    console.log("in camp applications");
+    //make http request to camp applications route in backend
+    axios.get('/camp_applications').then(function(response) {
+      console.log(response.data);
+      this.camp_applications = response.data;
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
+
 
 var router = new VueRouter({
   routes: [
@@ -538,12 +568,13 @@ var router = new VueRouter({
     { path: "/family-login", component: FamilyLoginPage },
     { path: "/camp-login", component: CampLoginPage },
     { path: "/donor-login", component: DonorLoginPage },
-    // routes to camp pages
+    // routes to index pages
     { path: "/camps", component: CampIndexPage },
     { path: "/families", component: FamilyIndexPage },
     { path: "/donors", component: DonorIndexPage },
-    // route to application page
+    // route to application pages
     { path: "/application", component: ApplicationPage },
+    { path: "/myApplication", component: MyApplication },
     // route to child page
     { path: "/children", component: ChildrenPage },
     // routes to dashboard pages
