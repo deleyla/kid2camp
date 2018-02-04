@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180128181144) do
+ActiveRecord::Schema.define(version: 20180204192311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20180128181144) do
     t.decimal "monthly_expense_total"
     t.decimal "amount_left_over"
     t.text "scholarship_need_explanation"
-    t.boolean "application_status"
     t.integer "family_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,7 +39,6 @@ ActiveRecord::Schema.define(version: 20180128181144) do
   create_table "camp_applications", force: :cascade do |t|
     t.integer "camp_id"
     t.integer "application_id"
-    t.boolean "application_received"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

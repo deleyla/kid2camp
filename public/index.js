@@ -383,7 +383,26 @@ var DonorIndexPage = {
   computed: {}
 };
 
+// =============== //
+// DASHBOARD PAGES //
+// =============== //
+
+var FamilyDashboardPage = {
+  template: "#family-dashboard-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!"
+    };
+  },
+  created: function() {},
+  methods: {},
+  computed: {}
+};
+
+
+// ================ //
 // APPLICATION PAGE //
+// ================ //
 
 // // Application-Page-Vue.js
 var ApplicationPage = {
@@ -433,11 +452,11 @@ var ApplicationPage = {
   }
 };
 
+// ================ //
+// CHILDREN PAGE //
+// ================ //
+
 // CHILD PAGE //
-
-// APPLICATION PAGE //
-
-// // Application-Page-Vue.js
 var ChildrenPage = {
   template: "#children-page",
   data: function() {
@@ -471,6 +490,39 @@ var ChildrenPage = {
   }
 };
 
+// ================ //
+// SCHOLARSHIP PAGE //
+// ================ //
+
+var ScholarshipPage = {
+  template: "#scholarship-page",
+  data: function() {
+    return {
+      amount: "",
+      frequency: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        amount: this.amount,
+        frequency: this.frequency
+      };
+      axios
+        .post("/scholarships", params)
+        .then(function(response) {
+          router.push("/camps");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+  }
+};
+
 
 var router = new VueRouter({
   routes: [
@@ -494,6 +546,10 @@ var router = new VueRouter({
     { path: "/application", component: ApplicationPage },
     // route to child page
     { path: "/children", component: ChildrenPage },
+    // routes to dashboard pages
+    { path: "/family-dashboard", component: FamilyDashboardPage},
+    // route to scholarship page
+    { path: "/scholarship", component: ScholarshipPage}
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

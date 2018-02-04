@@ -23,8 +23,7 @@ class CampApplicationsController < ApplicationController
     p current_family.application.id
     camp_application = CampApplication.new(
       camp_id: params[:camp_id],
-      application_id: current_family.application.id,
-      application_received: params[:application_received]
+      application_id: current_family.application.id
       )
     # save the information from user input to create a new camp_application.
     camp_application.save!
@@ -46,8 +45,8 @@ class CampApplicationsController < ApplicationController
     # update it
     if camp_application.update!(
       camp_id: params[:camp_id],
-      application_id: params[:application_id],
-      application_received: params[:application_received])
+      application_id: params[:application_id]
+      )
       render json: camp_application.as_json
     else
       render json: {errors: camp_application.errors.full_messages}

@@ -1,6 +1,6 @@
 class Scholarship < ApplicationRecord
   belongs_to :camp
-  belongs_to :child
+  # belongs_to :child
   def as_json
     {
     id: id,

@@ -21,7 +21,6 @@ class Application < ApplicationRecord
       monthly_expense_total: monthly_expense_total,
       amount_left_over: amount_left_over,
       scholarship_need_explanation: scholarship_need_explanation,
-      application_status: application_status,
       family: family.as_json
     }
   end

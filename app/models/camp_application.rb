@@ -8,8 +8,7 @@ class CampApplication < ApplicationRecord
       camp_id: camp_id,
       camp: camp.as_json,
       application_id: application_id,
-      application: application.as_json,
-      application_received: application_received
+      application: application.as_json
     }
   end
 end

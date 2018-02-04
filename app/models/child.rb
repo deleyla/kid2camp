@@ -1,6 +1,6 @@
 class Child < ApplicationRecord
   belongs_to :family
-  has_many :scholarships
+  # has_many :scholarships
 
   def as_json
     {
