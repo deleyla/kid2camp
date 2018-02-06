@@ -484,7 +484,7 @@ var ChildrenPage = {
       axios
         .post("/children", params)
         .then(function(response) {
-          router.push("/application");
+          router.push("/family-dashboard");
         })
         .catch(
           function(error) {
@@ -550,6 +550,28 @@ var ScholarshipPage = {
   }
 };
 
+// ========================== //
+// SHOW SCHOLARSHIP COMPONENT //
+// ========================== //
+
+var MyScholarships = {
+  template: "#my-scholarship-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!",
+      myScholarships: []
+    };
+  },
+  created: function() {
+    axios.get('/scholarships').then(function(response) {
+      this.myScholarships = response.data;
+      console.log(this.myScholarships);
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
+
 // =============== //
 // DASHBOARD PAGES //
 // =============== //
@@ -603,7 +625,8 @@ var router = new VueRouter({
     // routes to dashboard pages
     { path: "/family-dashboard", component: FamilyDashboardPage},
     // route to scholarship page
-    { path: "/scholarship", component: ScholarshipPage}
+    { path: "/scholarship", component: ScholarshipPage},
+    { path: "/myScholarships", component: MyScholarships},
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

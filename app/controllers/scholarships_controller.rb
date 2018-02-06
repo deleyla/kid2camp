@@ -2,7 +2,12 @@ class ScholarshipsController < ApplicationController
 
   # get all scholarships from my database
   def index
-    scholarships = Scholarship.all
+    children = current_family.children
+    scholarships = []
+
+    children.each do |child|
+      scholarships = scholarships + child.scholarships
+    end
     # if current_scholarship
     #   scholarships = current_user.scholarships
     #   render json: scholarships.as_json

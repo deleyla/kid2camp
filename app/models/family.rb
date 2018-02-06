@@ -30,7 +30,7 @@ class Family < ApplicationRecord
       state: state,
       zip_code: zip_code, 
       photo: photo, 
-      children: children.as_json
+      children: children.as_json,
     }
   end
 end

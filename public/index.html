@@ -555,13 +555,13 @@
               {{ camp.city }}
               {{ camp.state }}
               {{ camp.zip_code }}<br>
-              {{ camp.email }}<br>
-              {{ camp.phone_number }}
             </div><br>
             <button class="btn btn-primary" v-on:click="submit(camp)">Apply</button><br><br>
           </div>
         </div>
-        </div>
+      </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -653,16 +653,41 @@
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
       <div class="form-group">
-        <label>How many children live in your household?</label>
-        <input type="child_count" class="form-control" v-model="childCount">
+        <label for="sel1">How many children live in your household?</label>
+        <select type="child_count" class="form-control" id="sel1" v-model="childCount">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
       </div>
       <div class="form-group">
-        <label>How many adults live in your household?</label>
-        <input type="adult_count" class="form-control" v-model="adultCount">
+        <label for="sel1">How many adults live in your household?</label>
+        <select type="adult_count" class="form-control" id="sel1" v-model="adultCount">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
       </div>
       <div class="form-group">
-        <label>Are you a single or dual income household?</label>
-        <input type="household_income_type" class="form-control" v-model="householdIncomeType">
+        <label for="sel1">Are you a single or dual income household?</label>
+        <select type="household_income_type" class="form-control" id="sel1" v-model="householdIncomeType">
+          <option>single</option>
+          <option>dual</option>
+        </select>
       </div>
       <div class="form-group">
         <label>What is your gross monthly income?</label>
@@ -884,6 +909,43 @@
   </div>
 </template>
 
+<!-- ====================== -->
+<!-- SHOW SCHOLARSHIPS PAGE -->
+<!-- ====================== -->
+
+<template id="my-scholarship-page">
+  <div class="vue-component">
+    <div class="jumbotron" style="padding-top: 150px">
+      <div class="container text-center">
+        <h1>My Scholarships</h1>      
+      </div>
+    </div>
+    <div class="container">           
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Child's First Name</th>
+            <th>Child's Last Name</th>
+            <th>Camp</th>
+            <th>Scholarship Amount</th>
+            <th>Scholarship Frequency</th>
+          </tr>
+        </thead>
+        <tbody v-for="data in myScholarships">
+          <tr>
+            <td>{{data.child.first_name}}</td>
+            <td>{{data.child.last_name}}</td>
+            <td>{{data.camp.name}}</td>
+            <td>{{data.amount}}</td>
+            <td>{{data.frequency}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>    
+</template>
+
 <!-- ========== -->
 <!-- DASHBOARDS -->
 <!-- ========== -->
@@ -928,12 +990,12 @@
             <div class="col-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
               <a class="nav-link" href="#/myScholarships">My Scholarships</a>
-              <span class="text-muted">Review scholarships that have been awarded to you</span>
+              <span class="text-muted">Review scholarships that have been awarded to your children</span>
             </div>
             <div class="col-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <a class="nav-link" href="#/myDonors">My Donors</a>
-              <span class="text-muted">Review donors who have donated to you</span>
+              <a class="nav-link" href="#/myDonations">My Donations</a>
+              <span class="text-muted">Review donations you have received</span>
             </div>
           </section>
 
