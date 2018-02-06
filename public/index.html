@@ -544,7 +544,7 @@
           <div class="panel panel-primary">
             <div class="panel-heading">
               <h2>{{ camp.name }}</h2>
-              <h4>Scholarships Available: {{ camp.scholarships.length }}</h4>
+              <h4>Scholarships Available: {{ camp.scholarship_count }}</h4>
             </div>
             <div class="panel-body">
               <img class="card-img-top img-fluid rounded-square" src="img/02.jpeg" alt="Card image cap" style="height:200px; width:200px">
@@ -707,9 +707,75 @@
 
 <template id="my-application-page">
   <div class="vue-component">
-    <div> 
-      <img class="card-img-top" src="https://bingserv.com/wp-content/uploads/2015/07/app.jpg" alt="Card image cap">
-      <p class="card-text"> Child Count: {{familyApplication.child_count}}</p>
+    <div class="jumbotron" style="padding-top: 150px">
+      <div class="container text-center">
+        <h1>My Application</h1>      
+      </div>
+    </div>
+    <div class="container">           
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Label</th>
+            <th>User Input</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Child Count</td>
+            <td>{{familyApplication.child_count}}</td>
+          </tr>
+          <tr>
+            <td>Adult Count</td>
+            <td>{{familyApplication.adult_count}}</td>
+          </tr>
+          <tr>
+            <td>Household Income Type</td>
+            <td>{{familyApplication.household_income_type}}</td>
+          </tr>
+          <tr>
+            <td>Gross Monthly Income</td>
+            <td>{{familyApplication.gross_monthly_income}}</td>
+          </tr>
+          <tr>
+            <td>Net Monthly Income</td>
+            <td>{{familyApplication.net_monthly_income}}</td>
+          </tr>
+          <tr>
+            <td>Monthly Housing Cost</td>
+            <td>{{familyApplication.monthly_housing_cost}}</td>
+          </tr>
+          <tr>
+            <td>Monthly Utility Cost</td>
+            <td>{{familyApplication.monthly_utility_cost}}</td>
+          </tr>
+          <tr>
+            <td>Monthly Medical Cost</td>
+            <td>{{familyApplication.monthly_medical_cost}}</td>
+          </tr>
+          <tr>
+            <td>Monthly Transportation Cost</td>
+            <td>{{familyApplication.monthly_transportation_cost}}</td>
+          </tr>
+          <tr>
+            <td>Monthly Food Cost</td>
+            <td>{{familyApplication.monthly_food_cost}}</td>
+          </tr>
+          <tr>
+            <td>Monthly Expense Total</td>
+            <td>{{familyApplication.monthly_expense_total}}</td>
+          </tr>
+          <tr>
+            <td>Amount Left Over After Expenses</td>
+            <td>{{familyApplication.amount_left_over}}</td>
+          </tr>
+          <tr>
+            <td>Scholarship Need Explanation</td>
+            <td>{{familyApplication.scholarship_need_explanation}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     </div>
   </div>    
 </template>
@@ -751,6 +817,42 @@
     </div>
   </div>
 </template>
+
+<!-- ===================== -->
+<!-- SHOW CHILDREN PAGE -->
+<!-- ===================== -->
+
+<template id="my-children-page">
+  <div class="vue-component">
+    <div class="jumbotron" style="padding-top: 150px">
+      <div class="container text-center">
+        <h1>My Children</h1>      
+      </div>
+    </div>
+    <div class="container">           
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Sex</th>
+            <th>Birthday</th>
+          </tr>
+        </thead>
+        <tbody v-for="data in myChildren">
+          <tr>
+            <td>{{data.first_name}}</td>
+            <td>{{data.last_name}}</td>
+            <td>{{data.sex}}</td>
+            <td>{{data.birthday}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>    
+</template>
+
 
 <!-- ================ -->
 <!-- SCHOLARSHIP PAGE -->

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 # Child Routes
   get "/children" => "children#index"
   post "/children" => "children#create"
-  get "/children/:id" => "children#show"
+  get "/children/show" => "children#show"
   patch "/children/:id" => "children#update"
   delete "/children/:id" => "children#destroy"
 # Camp Routes

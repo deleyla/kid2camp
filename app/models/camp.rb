@@ -20,7 +20,7 @@ class Camp < ApplicationRecord
       photo: photo,
       category: category,
       sub_category: sub_category,
-      scholarships: scholarships.as_json
+      scholarship_count: scholarships.length
     }
   end
 end

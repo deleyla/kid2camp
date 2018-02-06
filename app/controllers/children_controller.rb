@@ -14,7 +14,7 @@ class ChildrenController < ApplicationController
 
   # grab a single child from my database based on the id
   def show
-    child = Child.find_by(id: params[:id])
+    child = current_family.children
     render json: child.as_json
   end
 

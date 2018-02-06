@@ -495,6 +495,28 @@ var ChildrenPage = {
   }
 };
 
+// ======================= //
+// SHOW CHILDREN COMPONENT //
+// ======================= //
+
+var MyChildren = {
+  template: "#my-children-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!",
+      myChildren: []
+    };
+  },
+  created: function() {
+    axios.get('/children/show').then(function(response) {
+      this.myChildren = response.data;
+      console.log(this.myChildren);
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
+
 // ================ //
 // SCHOLARSHIP PAGE //
 // ================ //
@@ -577,6 +599,7 @@ var router = new VueRouter({
     { path: "/myApplication", component: MyApplication },
     // route to child page
     { path: "/children", component: ChildrenPage },
+    { path: "/myChildren", component: MyChildren },
     // routes to dashboard pages
     { path: "/family-dashboard", component: FamilyDashboardPage},
     // route to scholarship page

@@ -5,7 +5,8 @@ class Scholarship < ApplicationRecord
     {
     id: id,
     amount: amount,
-    frequency: frequency
+    frequency: frequency,
+    camp: camp.as_json
     }
   end
 end
