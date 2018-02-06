@@ -816,22 +816,22 @@
             <div class="col-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
                 <a class="nav-link" href="#/myApplication">My Application</a>
-              <div class="text-muted">Something else</div>
+              <div class="text-muted">Review your completed application</div>
             </div>
             <div class="col-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+              <a class="nav-link" href="#/myChildren">My Children</a>
+              <span class="text-muted">Review the children listed under your account</span>
             </div>
             <div class="col-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+              <a class="nav-link" href="#/myScholarships">My Scholarships</a>
+              <span class="text-muted">Review scholarships that have been awarded to you</span>
             </div>
             <div class="col-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+              <a class="nav-link" href="#/myDonors">My Donors</a>
+              <span class="text-muted">Review donors who have donated to you</span>
             </div>
           </section>
 
@@ -843,16 +843,12 @@
                   <th>Camp Name</th>
                   <th>Camp Category</th>
                   <th>Camp Sub-Category</th>
-                  <th>Scholarship Amount</th>
-                  <th>Scholarship Frequency</th>
                 </tr>
               </thead>
               <tbody v-for="data in camp_applications">
                   <td> {{ data.name }} </td>
                   <td>{{ data.category }}</td>
                   <td>{{ data.sub_category }}</td>
-<!--              <td>{{ data.scholarship.amount }}</td>
-                  <td>{{ data.frequency }}</td> -->
               </tbody>
             </table>
           </div>

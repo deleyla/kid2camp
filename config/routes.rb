@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 #CampApplication Routes
   get "/camp_applications" => "camp_applications#index"
   post "/camp_applications" => "camp_applications#create"
-  get "/camp_applications/:id" => "camp_applications#show"
+  get "/camp_applications/show" => "camp_applications#show"
   patch "/camp_applications/:id" => "camp_applications#update"
   delete "/camp_applications/:id" => "camp_applications#destroy"
 end

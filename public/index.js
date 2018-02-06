@@ -544,7 +544,7 @@ var FamilyDashboardPage = {
   created: function() {
     console.log("in camp applications");
     //make http request to camp applications route in backend
-    axios.get('/camp_applications/:id').then(function(response) {
+    axios.get('/camp_applications/show').then(function(response) {
       console.log(response.data);
       this.camp_applications = response.data;
     }.bind(this));
