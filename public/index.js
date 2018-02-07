@@ -4,7 +4,6 @@ var HomePage = {
   template: "#home-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!"
     };
   },
   created: function() {},
@@ -16,7 +15,6 @@ var LoginPage = {
   template: "#index-login-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!"
     };
   },
   created: function() {},
@@ -28,7 +26,6 @@ var SignupPage = {
   template: "#index-signup-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!"
     };
   },
   created: function() {},
@@ -308,7 +305,6 @@ var CampIndexPage = {
   template: "#camp-index-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js",
       camps: [],
       errors: []
     };
@@ -345,7 +341,6 @@ var FamilyIndexPage = {
   template: "#family-index-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js",
       families: [],
       errors: []
     };
@@ -366,7 +361,6 @@ var DonorIndexPage = {
   template: "#donor-index-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js",
       donors: [],
       errors: []
     };
@@ -443,7 +437,6 @@ var MyApplication = {
   template: "#my-application-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!",
       familyApplication: []
     };
   },
@@ -503,7 +496,6 @@ var MyChildren = {
   template: "#my-children-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!",
       myChildren: []
     };
   },
@@ -558,7 +550,6 @@ var MyScholarships = {
   template: "#my-scholarship-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!",
       myScholarships: []
     };
   },
@@ -566,6 +557,28 @@ var MyScholarships = {
     axios.get('/scholarships').then(function(response) {
       this.myScholarships = response.data;
       console.log(this.myScholarships);
+    }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
+
+
+// ========================== //
+// SHOW DONATIONS COMPONENT //
+// ========================== //
+
+var MyDonations = {
+  template: "#my-donations-page",
+  data: function() {
+    return {
+      myDonations: []
+    };
+  },
+  created: function() {
+    axios.get('/donations').then(function(response) {
+      this.myDonations = response.data;
+      console.log(this.myDonations);
     }.bind(this));
   },
   methods: {},
@@ -580,7 +593,6 @@ var FamilyDashboardPage = {
   template: "#family-dashboard-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!",
       camp_applications: [],
       errors: []
     };
@@ -627,6 +639,8 @@ var router = new VueRouter({
     // route to scholarship page
     { path: "/scholarship", component: ScholarshipPage},
     { path: "/myScholarships", component: MyScholarships},
+    // route to donations pages
+    { path: "/myDonations", component: MyDonations},
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

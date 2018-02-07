@@ -831,8 +831,12 @@
         <input type="last_name" class="form-control" v-model="lastName">
       </div>
       <div class="form-group">
-        <label>What is your child's sex? Male or Female</label>
-        <input type="sex" class="form-control" v-model="sex">
+        <label for="sel1">What is your child's sex?</label>
+        <select type="sex" class="form-control" id="sel1" v-model="sex">
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
       </div>
       <div class="form-group">
         <label>What is your child's birthday? Please use the following format: YYYY-MM-DD</label>
@@ -946,6 +950,37 @@
   </div>    
 </template>
 
+<!-- ====================== -->
+<!-- SHOW DONATIONS PAGE -->
+<!-- ====================== -->
+
+<template id="my-donations-page">
+  <div class="vue-component">
+    <div class="jumbotron" style="padding-top: 150px">
+      <div class="container text-center">
+        <h1>My Donations</h1>      
+      </div>
+    </div>
+    <div class="container">           
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Donation Amount</th>
+            <th>Donation Frequency</th>
+          </tr>
+        </thead>
+        <tbody v-for="data in myDonations">
+          <tr>
+            <td>{{data.amount}}</td>
+            <td>{{data.frequency}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>    
+</template>
+
 <!-- ========== -->
 <!-- DASHBOARDS -->
 <!-- ========== -->
@@ -960,7 +995,7 @@
         <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar" style="padding-top: 122px">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
+              <a class="nav-link active" href="#/family-dashboard">Overview <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#/application">Create Application</a>
@@ -978,22 +1013,22 @@
 
           <section class="row text-center placeholders">
             <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <img src="https://go.umaine.edu/wp-content/uploads/sites/10/2017/01/The-Common-Application-300x300.png" width="200" height="250" class="img-responsive rounded-circle" alt="Generic placeholder thumbnail">
                 <a class="nav-link" href="#/myApplication">My Application</a>
               <div class="text-muted">Review your completed application</div>
             </div>
             <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <img src="http://wh.farm/images/family_icon.svg?crc=4080782494" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
               <a class="nav-link" href="#/myChildren">My Children</a>
               <span class="text-muted">Review the children listed under your account</span>
             </div>
             <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <img src="https://media.beam.usnews.com/cf/24/6827d31944d4ad5b5f2f7b2b0a33/160804-scholarshipsearchinsider-design.svg" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
               <a class="nav-link" href="#/myScholarships">My Scholarships</a>
               <span class="text-muted">Review scholarships that have been awarded to your children</span>
             </div>
             <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <img src="https://www.aerhq.org/Portals/_default/Skins/AER/images/content/donations-1.svg" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
               <a class="nav-link" href="#/myDonations">My Donations</a>
               <span class="text-muted">Review donations you have received</span>
             </div>

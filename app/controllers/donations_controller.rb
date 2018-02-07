@@ -2,7 +2,7 @@ class DonationsController < ApplicationController
 
   # get all donations from my database
   def index
-    donations = Donation.all
+    donations = current_family.donations
     # if current_donation
     #   donations = current_user.donations
     #   render json: donations.as_json
